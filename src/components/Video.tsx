@@ -77,7 +77,7 @@ export function Video(props: VideoProps) {
       </div>
 
       <div className="p-8 max-w-[1100px] mx-auto">
-        <div className=" flex items-start gap-16">
+        <div className=" flex flex-col items-start gap-16 sm:flex-row">
           <div className="flex-1">
             <h1 className="text-2xl font-bold">{data.lesson.title}</h1>
             <p className="mt-4 text-gray-200 leading-relaxed">
@@ -101,7 +101,7 @@ export function Video(props: VideoProps) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="w-full flex flex-col gap-4 sm:w-60">
             <Button
               variant="default"
               logo={<DiscordLogo size={24} />}
@@ -117,10 +117,10 @@ export function Video(props: VideoProps) {
           </div>
         </div>
 
-        <div className="gap-8 mt-20 grid grid-cols-2">
+        <div className="flex flex-col gap-8 mt-20 sm:grid sm:grid-cols-2">
           <a
             href=""
-            className="h-32 bg-gray-700 rounded overflow-hidden flex items-center gap-6 hover:bg-gray-600 transition-colors"
+            className="h-40 bg-gray-700 rounded overflow-hidden flex items-center gap-6 hover:bg-gray-600 transition-colors sm:h-32"
           >
             <div className="bg-green-700 h-full p-6 flex items-center">
               <FileArrowDown size={40} />
@@ -141,7 +141,7 @@ export function Video(props: VideoProps) {
 
           <a
             href=""
-            className="h-32 bg-gray-700 rounded overflow-hidden flex items-center gap-6 hover:bg-gray-600 transition-colors"
+            className="h-40 bg-gray-700 rounded overflow-hidden flex items-center gap-6 hover:bg-gray-600 transition-colors sm:h-32"
           >
             <div className="bg-green-700 h-full p-6 flex items-center">
               <Image size={40} />

@@ -3,6 +3,8 @@ import { useState, FormEvent } from "react";
 import { Logo } from "../components/Logo";
 import { useNavigate } from "react-router-dom";
 
+import mockupImg from "/src/assets/mockup.png"
+
 const CREATE_SUBSCRIBER_MUTATION = gql`
   mutation CreateSubscriber($name: String!, $email: String!) {
     createSubscriber(data: { name: $name, email: $email }) {
@@ -36,7 +38,7 @@ export function Subscriber() {
 
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
-      <div className="w-full max-w-[1100px] flex flex-col sm:flex-row items-center justify-between mt-10 sm:mt-20 sm:mx-auto text-center sm:text-start">
+      <div className="w-full max-w-[1100px] flex flex-col items-center justify-between mt-10 text-center sm:flex-row sm:text-start sm:mx-auto">
         <div className="max-w-[640px] mx-10 mb-10">
           <div className="flex items-center justify-center sm:items-start sm:justify-start">
             <Logo />
@@ -54,7 +56,7 @@ export function Subscriber() {
           </p>
         </div>
 
-        <div className="p-8 bg-gray-700 border border-gray-500 rounded w-full">
+        <div className="p-8 bg-gray-700 border border-gray-500 rounded w-full text-start">
           <strong className="text-2xl mb-6 block">
             Inscreva-se gratuitamente
           </strong>
@@ -80,7 +82,7 @@ export function Subscriber() {
             <button
               type="submit"
               disabled={loading}
-              className="font-bold text-sm mt-4 py-4 bg-green-500 hover:bg-green-700 rounded disabled:opacity-50 transition-colors disabled:opacity-50"
+              className="font-bold text-sm mt-4 py-4 uppercase bg-green-500 hover:bg-green-700 rounded transition-colors disabled:opacity-50"
             >
               Garantir minha vaga
             </button>
@@ -88,7 +90,7 @@ export function Subscriber() {
         </div>
       </div>
       <img
-        src="/src/assets/group-mockup.png"
+        src={mockupImg}
         className="mt-10"
         alt="code group image"
       />
