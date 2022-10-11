@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState, FormEvent } from "react";
 import { Logo } from "../components/Logo";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const CREATE_SUBSCRIBER_MUTATION = gql`
   mutation CreateSubscriber($name: String!, $email: String!) {
@@ -12,12 +12,14 @@ const CREATE_SUBSCRIBER_MUTATION = gql`
 `;
 
 export function Subscriber() {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const [createSubscriber, {loading}] = useMutation(CREATE_SUBSCRIBER_MUTATION);
+  const [createSubscriber, { loading }] = useMutation(
+    CREATE_SUBSCRIBER_MUTATION
+  );
 
   async function handleSubscriber(event: FormEvent) {
     event.preventDefault();
@@ -29,14 +31,17 @@ const navigate = useNavigate();
       },
     });
 
-    navigate('/event')
+    navigate("/event");
   }
 
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
-      <div className="w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto">
-        <div className="max-w-[640px]">
-          <Logo />
+      <div className="w-full max-w-[1100px] flex flex-col sm:flex-row items-center justify-between mt-10 sm:mt-20 sm:mx-auto text-center sm:text-start">
+        <div className="max-w-[640px] mx-10 mb-10">
+          <div className="flex items-center justify-center sm:items-start sm:justify-start">
+            <Logo />
+          </div>
+
           <h1 className="mt-8 text-[2.5rem] leading-tight">
             Construa uma{" "}
             <strong className="text-blue-500">aplicação completa</strong>, do
@@ -49,24 +54,27 @@ const navigate = useNavigate();
           </p>
         </div>
 
-        <div className="p-8 bg-gray-700 border border-gray-500 rounded">
+        <div className="p-8 bg-gray-700 border border-gray-500 rounded w-full">
           <strong className="text-2xl mb-6 block">
             Inscreva-se gratuitamente
           </strong>
-          <form onSubmit={handleSubscriber} className="flex flex-col gap-2 w-full">
+          <form
+            onSubmit={handleSubscriber}
+            className="flex flex-col gap-2 w-full"
+          >
             <input
               type="text"
               placeholder="Seu nome completo"
               className="px-5 h-14 bg-gray-900 rounded"
               value={name}
-              onChange={event => setName(event.target.value)}
+              onChange={(event) => setName(event.target.value)}
             />
             <input
               type="email"
               placeholder="Digite seu e-mail"
               className="px-5 h-14 bg-gray-900 rounded"
               value={email}
-              onChange={event => setEmail(event.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
             />
 
             <button
